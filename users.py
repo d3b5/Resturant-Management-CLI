@@ -52,3 +52,9 @@ class Restaurent:
         print("Employee List:")
         for i,emp in enumerate(self.employees,1):
             print(f"{i}.{emp}")
+
+class FoodItem:
+    def __init__(self,name,price,quantity):
+        self.name = name
+        self.price = price
+        self.quantity = quantity
