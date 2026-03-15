@@ -42,3 +42,8 @@ class Restaurent:
         employee = Employee(name, phone, email, address, age, designation, salary)
         self.employees.append(employee)
         print(f"{name} is added as an employee!")
+        
+    def view_employees(self):
+        print("Employee List:")
+        for i,emp in enumerate(self.employees,1):
+            print(f"{i}.{emp}")
