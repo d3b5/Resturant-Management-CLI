@@ -32,13 +32,7 @@ class Employee(User):
 class Admin(User):
     def __init__(self, name, phone, email, address):
         super().__init__(name, phone, email, address)
-        
-
-    def add_employee(self,name, phone, email, address, age, designation, salary):
-        employee = Employee(name, phone, email, address, age, designation, salary)
-        self.employees.append(employee)
-        print(f"{name} is added as an employee!")
-    
+            
     def view_employee(self):
         print("Employee List:")
         for i,emp in enumerate(self.employees,1):
