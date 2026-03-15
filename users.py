@@ -42,3 +42,8 @@ class Restaurent:
     def __init__(self,name):
         self.name = name
         self.employees = [] #employee database
+
+    def add_employee(self,name, phone, email, address, age, designation, salary):
+        employee = Employee(name, phone, email, address, age, designation, salary)
+        self.employees.append(employee)
+        print(f"{name} is added as an employee!")
