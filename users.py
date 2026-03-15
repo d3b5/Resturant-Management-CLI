@@ -66,4 +66,5 @@ class Menu:
         self.items[item.name]=item
     
     def find_item(self,item_name):
-        return item_name in self.items
+        return self.items.get(item_name) #returns item or None
+    
