@@ -35,6 +35,9 @@ class Admin(User):
     
     def add_employee(self,restaurant,employee):
         restaurant.add_employee(employee)
+
+    def view_employees(self,restaurant):
+        restaurant.view_employees()
         
 class Restaurent:
     def __init__(self,name):
