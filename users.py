@@ -23,3 +23,8 @@ class Admin(User):
     def __init__(self, name, phone, email, address):
         super().__init__(name, phone, email, address)
         self.employees = [] #employee database
+
+    def add_employee(self,name, phone, email, address, age, designation, salary):
+        employee = Employee(name, phone, email, address, age, designation, salary)
+        self.employees.append(employee)
+        print(f"{name} is added as an employee!")
