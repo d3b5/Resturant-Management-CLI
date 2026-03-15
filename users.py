@@ -60,8 +60,8 @@ class FoodItem:
         self.quantity = quantity
 
 class Menu:
-    self.items = [] #menu database
+    self.items = {} #menu database
     
     def add_item(self,item):
         self.items.append(item)
-    
+        
