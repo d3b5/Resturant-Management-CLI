@@ -33,7 +33,7 @@ class Admin(User):
     def __init__(self, name, phone, email, address):
         super().__init__(name, phone, email, address)
             
-    def view_employee(self):
+    def view_employees(self):
         print("Employee List:")
         for i,emp in enumerate(self.employees,1):
             print(f"{i}.{emp}")
