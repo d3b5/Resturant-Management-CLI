@@ -43,4 +43,3 @@ class Admin(User):
         print("Employee List:")
         for i,emp in enumerate(self.employees,1):
             print(f"{i}.{emp}")
-
