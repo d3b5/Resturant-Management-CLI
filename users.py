@@ -43,6 +43,8 @@ class Restaurent:
     def __init__(self,name):
         self.name = name
         self.employees = [] #employee database
+        self.menu = Menu()
+
 
     def add_employee(self, employee):
         self.employees.append(employee)
