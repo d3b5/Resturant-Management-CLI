@@ -38,6 +38,9 @@ class Admin(User):
 
     def view_employees(self,restaurant):
         restaurant.view_employees()
+    
+    def add_item(self,restaurant,item):
+        restaurant.menu.add_item(item)
         
 class Restaurent:
     def __init__(self,name):
