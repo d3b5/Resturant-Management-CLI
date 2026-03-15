@@ -41,6 +41,9 @@ class Admin(User):
     
     def add_item(self,restaurant,item):
         restaurant.menu.add_item(item)
+    
+    def remove_item(self,restaurant,item_name):
+        restaurant.menu.remove_item(item_name)
         
 class Restaurent:
     def __init__(self,name):
