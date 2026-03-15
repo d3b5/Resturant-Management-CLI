@@ -18,3 +18,5 @@ class Employee(User):
         self.age = age
         self.designation = designation
         self.salary = salary
+emp = Employee("Rahim",2441139,"rahim@outlook.com","Dhaka",28,"Chef",25000)
+print(emp.age)
