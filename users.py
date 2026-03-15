@@ -67,4 +67,10 @@ class Menu:
     
     def find_item(self,item_name):
         return self.items.get(item_name) #returns item or None
+
+    def remove_item(self,item_name): 
+        if self.find_item(item_name) is not None: 
+            self.items.pop(item_name)
+        else:
+            print("Invalid Item")
     
