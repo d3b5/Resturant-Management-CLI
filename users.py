@@ -18,6 +18,16 @@ class Employee(User):
         self.age = age
         self.designation = designation
         self.salary = salary
+    
+    def __repr__(self):
+        return f"""
+        Name: {self.name}
+        Phone: {self.phone}
+        E-Mail: {self.email}
+        Address: {self.address}
+        Age: {self.age}
+        Designation: {self.designation}
+        Salary: {self.salary}"""
 
 class Admin(User):
     def __init__(self, name, phone, email, address):
