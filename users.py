@@ -32,7 +32,10 @@ class Employee(User):
 class Admin(User):
     def __init__(self, name, phone, email, address):
         super().__init__(name, phone, email, address)
-  
+    
+    def add_employee(self,restaurant,employee):
+        restaurant.add_employee(employee)
+        
 class Restaurent:
     def __init__(self,name):
         self.name = name
