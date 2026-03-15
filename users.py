@@ -64,3 +64,6 @@ class Menu:
     
     def add_item(self,item):
         self.items[item.name]=item
+    
+    def find_item(self,item_name):
+        return item_name in self.items
