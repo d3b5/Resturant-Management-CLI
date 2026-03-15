@@ -74,6 +74,10 @@ class Menu:
             self.items.pop(item_name)
         else:
             print("Invalid Item")
-    
+
+    def show_menu(self):
+        for i,item in enumerate(self.items.values(),1):
+            print(f"Name\tPrice\tQuantity")
+            print(f"{item.name}\t{item.price}\t{item.quantity}")
 
 
