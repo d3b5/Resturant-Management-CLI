@@ -60,7 +60,8 @@ class FoodItem:
         self.quantity = quantity
 
 class Menu:
-    self.items = {} #menu database
+    def __init__(self):
+        self.items = {} #menu database
     
     def add_item(self,item):
         self.items[item.name]=item
@@ -74,3 +75,5 @@ class Menu:
         else:
             print("Invalid Item")
     
+
+
