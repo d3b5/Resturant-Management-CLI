@@ -12,6 +12,11 @@ class User(ABC):
         self.email = email
         self.address = address
 
+class Customer(User):
+    def __init__(self, name, phone, email, address):
+        super().__init__(name, phone, email, address)
+        self.cart = None
+
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
         super().__init__(name, phone, email, address)
@@ -51,7 +56,6 @@ class Restaurent:
         self.employees = [] #employee database
         self.menu = Menu()
 
-
     def add_employee(self, employee):
         self.employees.append(employee)
         print(f"{name} is added as an employee!")
@@ -87,5 +91,4 @@ class Menu:
         for i,item in enumerate(self.items.values(),1):
             print(f"Name\tPrice\tQuantity")
             print(f"{item.name}\t{item.price}\t{item.quantity}")
-
 
