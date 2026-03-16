@@ -41,6 +41,9 @@ class Order:
             self.items[item] += item.quantity
         else:
             self.items[item] = item.quantity
+    def remove_item(self,item):
+        if item in self.items:
+            self.items.pop(item)
 
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
