@@ -41,9 +41,13 @@ class Order:
             self.items[item] += item.quantity
         else:
             self.items[item] = item.quantity
+
     def remove_item(self,item):
         if item in self.items:
             self.items.pop(item)
+            
+    def total_price(self):
+        return sum(item.price * quantity or item,quantity in self.items.items())
 
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
