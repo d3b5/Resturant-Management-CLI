@@ -27,6 +27,9 @@ class Customer(User):
         else:
             print("Item not found!")
 
+    def show_cart(self):
+        print(f"<-----{self.name}'s Cart----->")
+        print(f"Name\tPrice\tQuantity")
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
         super().__init__(name, phone, email, address)
