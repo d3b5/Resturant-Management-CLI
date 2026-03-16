@@ -30,6 +30,13 @@ class Customer(User):
     def show_cart(self):
         print(f"<-----{self.name}'s Cart----->")
         print(f"Name\tPrice\tQuantity")
+        """ for item,quantity in self.cart.items.item():
+            print(f"{item.name}\t{item.price}\t{item.quantity}") """
+class Order:
+    def __init__(self):
+        self.items={}
+    
+
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
         super().__init__(name, phone, email, address)
