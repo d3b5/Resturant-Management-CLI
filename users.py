@@ -16,6 +16,9 @@ class Customer(User):
     def __init__(self, name, phone, email, address):
         super().__init__(name, phone, email, address)
         self.cart = None
+    
+    def show_menu(self, restaurant):
+        restaurant.menu.show_menu()
 
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
