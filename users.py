@@ -36,6 +36,12 @@ class Order:
     def __init__(self):
         self.items={}
 
+    def add_item(self,item):
+        if item in self.items:
+            self.items[item] += item.quantity
+        else:
+            self.items[item] = item.quantity
+
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
         super().__init__(name, phone, email, address)
