@@ -20,10 +20,12 @@ class Customer(User):
     def show_menu(self, restaurant):
         restaurant.menu.show_menu()
     
-    def add_to_cart(self, restaurant, item_name):
+    def add_to_cart(self, restaurant, item_name,quantity):
         item = restaurant.find_item(item_name)
         if item:
-            pass #later, inside order class
+            item.quantity = quantity
+            self.cart.add_item(item)
+            print(f"{item.quantity} {item.name} is added to the cart.")
         else:
             print("Item not found!")
 
