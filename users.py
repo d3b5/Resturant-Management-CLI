@@ -19,6 +19,13 @@ class Customer(User):
     
     def show_menu(self, restaurant):
         restaurant.menu.show_menu()
+    
+    def add_to_cart(self, restaurant, item_name):
+        item = restaurant.find_item(item_name)
+        if item:
+            pass #later, inside order class
+        else:
+            print("Item not found!")
 
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
