@@ -35,7 +35,6 @@ class Customer(User):
 class Order:
     def __init__(self):
         self.items={}
-    
 
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
@@ -108,7 +107,15 @@ class Menu:
             print("Invalid Item")
 
     def show_menu(self):
-        for i,item in enumerate(self.items.values(),1):
-            print(f"Name\tPrice\tQuantity")
+        print(f"Name\tPrice\tQuantity")
+        for i,item in enumerate(self.items.values(),1):            
             print(f"{item.name}\t{item.price}\t{item.quantity}")
 
+mn = Menu()
+burger = FoodItem("Burger",15,75)
+coke = FoodItem("Coke",3,100)
+fries = FoodItem("Fries",4,100)
+mn.add_item(burger)
+mn.add_item(coke)
+mn.add_item(fries)
+mn.show_menu()
