@@ -90,5 +90,8 @@ def admin_menu():
             admin.view_employees(star)
         elif choice == 5:
             admin.view_menu(star)
+        elif choice == 6:
+            break
         else:
             print("Invalid Choice!")
+
