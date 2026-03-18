@@ -112,3 +112,6 @@ class Admin(User):
     
     def remove_item(self,restaurant,item_name):
         restaurant.menu.remove_item(item_name)
+    
+    def view_menu(self,restaurant):
+        restaurant.menu.show_menu()
