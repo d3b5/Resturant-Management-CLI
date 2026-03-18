@@ -1,7 +1,10 @@
 """People who will use the software:
 1. Customer
 2. Employee
-3. Admin 
+3. Admin print(bro
+
+
+
 """
 from abc import ABC
 
@@ -15,44 +18,75 @@ class User(ABC):
 class Customer(User):
     def __init__(self, name, phone, email, address):
         super().__init__(name, phone, email, address)
-        self.cart = order()
+        self.cart = Order()
     
     def show_menu(self, restaurant):
         restaurant.menu.show_menu()
     
     def add_to_cart(self, restaurant, item_name,quantity):
-        item = restaurant.find_item(item_name)
-        if item:
-            item.quantity = quantity
-            self.cart.add_item(item)
-            print(f"{item.quantity} {item.name} is added to the cart.")
+        item = restaurant.menu.find_item(item_name)
+        if item:         
+
+            if quantity<0:
+                print("Invalid Quantity!")
+            elif quantity>item.quantity:
+                print(f"Insufficient stock. We have {item.quantity} {item.name}")
+            else:
+                self.cart.add_item(FoodItem(item.name, item.price, quantity))
+                item.quantity -= quantity #updating resturant inventory
+                print(f"{quantity} {item.name} is added to the cart.")
         else:
             print("Item not found!")
+    
+    def remove_from_cart(self, restaurant, item_name, quantity):
+        cart_item = self.cart.find_item(item_name)
+        inventory_item = restaurant.menu.find_item(item_name)
+        if not cart_item and not inventory_item:
+            print("Invalid Item")
+        elif not cart_item:
+            print(f"You dont have {item_name} in your cart!")
+        elif quantity<0:
+            print("Invalid quantity")
+        elif cart_item.quantity < quantity:
+            print(f"Insufficient quantity. You only have {cart.item.quantity} {item_name} in your cart")
+        else:
+            cart_item.quantity -= quantity
+            inventory_item.quantity += quantity
+
+            if cart_item.quantity==0:
+                self.cart.remove_item(item_name)
+                print(f"All {item_name} has been removed!")
+            else:
+                print(f"{quantity} {item_name} has been removed from cart. Remaining {item_name}: {cart_item.quantity}")
+
 
     def show_cart(self):
         print(f"<-----{self.name}'s Cart----->")
         print(f"Name\tPrice\tQuantity")
-        for item,quantity in self.cart.items.item():
+        for item in self.cart.items.values():
             print(f"{item.name}\t{item.price}\t{item.quantity}")
 class Order:
     def __init__(self):
         self.items={}
 
     def add_item(self,item):
-        if item in self.items:
-            self.items[item] += item.quantity
+        if item.name in self.items:
+            self.items[item.name].quantity += item.quantity
         else:
-            self.items[item] = item.quantity
+            self.items[item.name] = item
 
-    def remove_item(self,item):
-        if item in self.items:
-            self.items.pop(item)
+    def find_item(self,item_name):
+        return self.items.get(item_name) #returns item or None            
 
     def total_price(self):
-        return sum(item.price * quantity or item,quantity in self.items.items())
+        return sum(item.price * item.quantity for item in self.items.values())
 
     def clear_cart(self):
         self.items = {}
+    
+    def remove_item(self, item_name):
+        self.items.pop(item_name)
+
 
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
@@ -87,7 +121,7 @@ class Admin(User):
     def remove_item(self,restaurant,item_name):
         restaurant.menu.remove_item(item_name)
         
-class Restaurent:
+class Restaurant:
     def __init__(self,name):
         self.name = name
         self.employees = [] #employee database
@@ -95,7 +129,7 @@ class Restaurent:
 
     def add_employee(self, employee):
         self.employees.append(employee)
-        print(f"{name} is added as an employee!")
+        print(f"{employee.name} is added as an employee!")
         
     def view_employees(self):
         print("Employee List:")
@@ -125,15 +159,27 @@ class Menu:
             print("Invalid Item")
 
     def show_menu(self):
+        print("<-----MENU----->")
         print(f"Name\tPrice\tQuantity")
         for i,item in enumerate(self.items.values(),1):            
             print(f"{item.name}\t{item.price}\t{item.quantity}")
 
-mn = Menu()
+
 burger = FoodItem("Burger",15,75)
 coke = FoodItem("Coke",3,100)
 fries = FoodItem("Fries",4,100)
-mn.add_item(burger)
-mn.add_item(coke)
-mn.add_item(fries)
-mn.show_menu()
+
+customer1 = Customer("Nikki",1234,"fearless@bella.com","Arizona")
+star = Restaurant("Star Hotel")
+star.menu.add_item(burger)
+star.menu.add_item(fries)
+star.menu.add_item(coke)
+customer1.show_menu(star)
+customer1.add_to_cart(star,"Burger",1)
+customer1.add_to_cart(star,"Coke",2)
+customer1.add_to_cart(star,"Fries",2)
+customer1.show_cart()
+print("Bill: ",customer1.cart.total_price())
+customer1.show_menu(star)
+customer1.remove_from_cart(star,"Fries",1)
+customer1.show_cart()
