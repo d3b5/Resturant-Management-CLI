@@ -1,10 +1,7 @@
 """People who will use the software:
 1. Customer
 2. Employee
-3. Admin print(bro
-
-
-
+3. Admin 
 """
 from abc import ABC
 
@@ -114,11 +111,6 @@ class Restaurant:
         for i,emp in enumerate(self.employees,1):
             print(f"{i}.{emp}")
 
-class FoodItem:
-    def __init__(self,name,price,quantity):
-        self.name = name
-        self.price = price
-        self.quantity = quantity
 
 class Menu:
     def __init__(self):
