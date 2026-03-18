@@ -1,3 +1,4 @@
+from food_item import FoodItem
 class Menu:
     def __init__(self):
         self.items = {} #menu database

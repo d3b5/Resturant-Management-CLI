@@ -4,7 +4,9 @@
 3. Admin 
 """
 from abc import ABC
-
+from restaurant import Restaurant
+from menu import Menu
+from order import Order
 class User(ABC):
     def __init__(self, name, phone, email, address):
         self.name = name

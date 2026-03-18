@@ -1,4 +1,5 @@
-        
+import users
+from menu import Menu  
 class Restaurant:
     def __init__(self,name):
         self.name = name
