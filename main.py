@@ -95,3 +95,18 @@ def admin_menu():
         else:
             print("Invalid Choice!")
 
+while True:
+    print(f"Welcome to {star.name}")
+    print("""Select Option:
+    1. Admin
+    2. Customer
+    3. Exit """)
+    choice = int(input("Choice: "))
+    if choice == 1:
+        customer_menu()
+    elif choice == 2:
+        admin_menu()
+    elif choice == 3:
+        break
+    else:
+        print("Invalid Choice!")
