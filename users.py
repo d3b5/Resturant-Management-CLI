@@ -57,6 +57,18 @@ class Customer(User):
                 print(f"All {item_name} has been removed!")
             else:
                 print(f"{quantity} {item_name} has been removed from cart. Remaining {item_name}: {cart_item.quantity}")
+    @property
+    def show_bill(self):
+        return self.cart.total_price
+    def pay_bill(self,cash):
+        if cash<0:
+            print("Invalid amount!")
+        if cash < self.show_bill:
+            print(f"Insufficient amount!")
+        else:
+            print(f"{self.show_bill} USD Paid!")
+            if cash > self.show_bill:
+                print(f"Change return: {cash - self.show_bill}")
 
 
     def show_cart(self):
