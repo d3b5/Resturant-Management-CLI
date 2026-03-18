@@ -16,7 +16,10 @@ class Menu:
             print("Invalid Item")
 
     def show_menu(self):
-        print("<-----MENU----->")
         print(f"Name\tPrice\tQuantity")
-        for i,item in enumerate(self.items.values(),1):            
-            print(f"{item.name}\t{item.price}\t{item.quantity}")
+        if not self.items:
+            print("Menu is Emply!")
+        else:            
+            print("<-----MENU----->")
+            for i,item in enumerate(self.items.values(),1):            
+                print(f"{item.name}\t{item.price}\t{item.quantity}")
