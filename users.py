@@ -67,8 +67,11 @@ class Customer(User):
             print(f"Insufficient amount!")
         else:
             print(f"{self.show_bill} USD Paid!")
+            self.cart.clear_cart()
+                        
             if cash > self.show_bill:
                 print(f"Change return: {cash - self.show_bill}")
+            
 
 
     def show_cart(self):
