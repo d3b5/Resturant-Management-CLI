@@ -26,7 +26,7 @@ def customer_menu():
         """)
         choice = int(input("Choice: "))
         if choice == 1:
-            customer.view_menu()
+            customer.show_menu()
         elif choice == 2:
             item_name = input("Item Name: ").lower()
             quantity = int(input("Quantity: "))
