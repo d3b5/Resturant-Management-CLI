@@ -46,3 +46,49 @@ def customer_menu():
             break
         else:
             print("Invalid Choice!")
+
+def admin_menu():
+    name = input("Enter Your Name: ").lower()
+    email = input("Enter Your E-Mail: ").lower()
+    phone = input("Enter Your Phone Number: ")
+    address = input("Enter Your Address: ").lower()
+    admin = Admin(name = name, phone = phone, email = email, address = address)
+
+    while True:
+        print(f"Welcome Admin {admin.name.title()}!")
+        print("Select an option:")
+        print("""
+        1. Add item
+        2. Remove item
+        3. Add employee
+        4. View employees
+        5. View menu
+        6. Exit
+        """)
+        choice = int(input("Choice: "))
+        if choice == 1:
+            item_name = input("Item Name: ").lower()
+            quantity = int(input("Quantity: "))
+            price = float(input("Price: "))
+            item = FoodItem(name = item_name, price = price, quantity = quantity)
+            admin.add_item(item)
+        elif choice == 2:
+            item_name = input("Item Name: ").lower()
+            admin.remove_item(item_name)
+        elif choice == 3:
+            print("Enter employee details:")
+            name = input("Name: ").lower()
+            email = input("E-Mail: ").lower()
+            phone = input("Phone Number: ")
+            address = input("Address: ").lower()
+            age = int(input("Age: "))
+            designation = input("Designation: ")
+            salary = int(input("Salary: "))
+            employee = Employee(name=name, phone = phone, email = email, address = address, age = age, designation = designation, salary = salary)
+            admin.add_employee(star,employee)
+        elif choice == 4:
+            admin.view_employees(star)
+        elif choice == 5:
+            admin.view_menu(star)
+        else:
+            print("Invalid Choice!")
