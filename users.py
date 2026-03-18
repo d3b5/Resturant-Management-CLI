@@ -65,28 +65,6 @@ class Customer(User):
         print(f"Name\tPrice\tQuantity")
         for item in self.cart.items.values():
             print(f"{item.name}\t{item.price}\t{item.quantity}")
-class Order:
-    def __init__(self):
-        self.items={}
-
-    def add_item(self,item):
-        if item.name in self.items:
-            self.items[item.name].quantity += item.quantity
-        else:
-            self.items[item.name] = item
-
-    def find_item(self,item_name):
-        return self.items.get(item_name) #returns item or None            
-
-    def total_price(self):
-        return sum(item.price * item.quantity for item in self.items.values())
-
-    def clear_cart(self):
-        self.items = {}
-    
-    def remove_item(self, item_name):
-        self.items.pop(item_name)
-
 
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
@@ -179,7 +157,7 @@ customer1.add_to_cart(star,"Burger",1)
 customer1.add_to_cart(star,"Coke",2)
 customer1.add_to_cart(star,"Fries",2)
 customer1.show_cart()
-print("Bill: ",customer1.cart.total_price())
+print("Bill: ",customer1.cart.total_price)
 customer1.show_menu(star)
 customer1.remove_from_cart(star,"Fries",1)
 customer1.show_cart()
