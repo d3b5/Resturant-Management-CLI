@@ -95,22 +95,3 @@ class Admin(User):
     
     def remove_item(self,restaurant,item_name):
         restaurant.menu.remove_item(item_name)
-
-burger = FoodItem("Burger",15,75)
-coke = FoodItem("Coke",3,100)
-fries = FoodItem("Fries",4,100)
-
-customer1 = Customer("Nikki",1234,"fearless@bella.com","Arizona")
-star = Restaurant("Star Hotel")
-star.menu.add_item(burger)
-star.menu.add_item(fries)
-star.menu.add_item(coke)
-customer1.show_menu(star)
-customer1.add_to_cart(star,"Burger",1)
-customer1.add_to_cart(star,"Coke",2)
-customer1.add_to_cart(star,"Fries",2)
-customer1.show_cart()
-print("Bill: ",customer1.cart.total_price)
-customer1.show_menu(star)
-customer1.remove_from_cart(star,"Fries",1)
-customer1.show_cart()
