@@ -74,7 +74,7 @@ def admin_menu():
             admin.add_item(star,item)
         elif choice == 2:
             item_name = input("Item Name: ").lower()
-            admin.remove_item(item_name)
+            admin.remove_item(star,item_name)
         elif choice == 3:
             print("Enter employee details:")
             name = input("Name: ").lower()
