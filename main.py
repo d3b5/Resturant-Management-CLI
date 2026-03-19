@@ -15,7 +15,7 @@ def customer_menu():
 
     print(f"Welcome {customer.name.title()}!")
     while True:        
-        print("Select an option:")
+        print("\nSelect an option:")
         print("""
         1. View menu
         2. Add item to cart
@@ -56,11 +56,11 @@ def admin_menu():
 
     print(f"Welcome Admin {admin.name.title()}!")
     while True:
-        print("Select an option:")
+        print("\nSelect an option:")
         print("""
         1. Add item
         2. Remove item
-        3. Add employee1
+        3. Add employee
         4. View employees
         5. View menu
         6. Exit
