@@ -26,7 +26,7 @@ def customer_menu():
         """)
         choice = int(input("Choice: "))
         if choice == 1:
-            customer.show_menu()
+            customer.show_menu(restaurant=star)
         elif choice == 2:
             item_name = input("Item Name: ").lower()
             quantity = int(input("Quantity: "))
@@ -60,7 +60,7 @@ def admin_menu():
         print("""
         1. Add item
         2. Remove item
-        3. Add employee
+        3. Add employee1
         4. View employees
         5. View menu
         6. Exit
@@ -103,9 +103,9 @@ while True:
     3. Exit """)
     choice = int(input("Choice: "))
     if choice == 1:
-        customer_menu()
-    elif choice == 2:
         admin_menu()
+    elif choice == 2:
+        customer_menu()
     elif choice == 3:
         break
     else:
