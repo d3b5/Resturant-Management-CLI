@@ -5,6 +5,7 @@ class Menu:
     
     def add_item(self,item):
         self.items[item.name]=item
+        print(f"{item.name} add successfully!")
     
     def find_item(self,item_name):
         return self.items.get(item_name) #returns item or None
