@@ -20,7 +20,7 @@ class Menu:
     def show_menu(self):
         
         if not self.items:
-            print("Menu is Emply!")
+            print("Menu is Empty!")
         else:            
             print(f"Name\tPrice\tQuantity")
             print("<-----MENU----->")
