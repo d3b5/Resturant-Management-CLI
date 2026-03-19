@@ -7,6 +7,7 @@ from abc import ABC
 from restaurant import Restaurant
 from menu import Menu
 from order import Order
+from food_item import FoodItem
 class User(ABC):
     def __init__(self, name, phone, email, address):
         self.name = name
