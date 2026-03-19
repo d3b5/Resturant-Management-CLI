@@ -5,7 +5,7 @@ class Menu:
     
     def add_item(self,item):
         self.items[item.name]=item
-        print(f"{item.name} add successfully!")
+        print(f"{item.name} added successfully!")
     
     def find_item(self,item_name):
         return self.items.get(item_name) #returns item or None
@@ -13,6 +13,7 @@ class Menu:
     def remove_item(self,item_name): 
         if self.find_item(item_name) is not None: 
             self.items.pop(item_name)
+            print(f"{item.name} removed successfully!")
         else:
             print("Invalid Item")
 
