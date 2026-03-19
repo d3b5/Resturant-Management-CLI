@@ -23,7 +23,7 @@ class Menu:
             print("Menu is Empty!")
         else:            
             print("<-------MENU------->")
-            print(f"    Name\tPrice\tQuantity")
+            print(f"    {'Name':<12} {'Price':<8} {'Quantity':<8}")
             
             for i,item in enumerate(self.items.values(),1):            
-                print(f"{i}. {item.name.title()}\t{item.price}\t{item.quantity}")
+                print(f"{i}. {item.name.title():<10} {item.price:<8} {item.quantity:<8}")
