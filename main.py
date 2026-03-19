@@ -13,8 +13,8 @@ def customer_menu():
     address = input("Enter Your Address: ").lower()
     customer = Customer(name = name, phone = phone, email = email, address = address)
 
-    while True:
-        print(f"Welcome {customer.name.title()}!")
+    print(f"Welcome {customer.name.title()}!")
+    while True:        
         print("Select an option:")
         print("""
         1. View menu
@@ -54,8 +54,8 @@ def admin_menu():
     address = input("Enter Your Address: ").lower()
     admin = Admin(name = name, phone = phone, email = email, address = address)
 
+    print(f"Welcome Admin {admin.name.title()}!")
     while True:
-        print(f"Welcome Admin {admin.name.title()}!")
         print("Select an option:")
         print("""
         1. Add item
@@ -71,7 +71,7 @@ def admin_menu():
             quantity = int(input("Quantity: "))
             price = float(input("Price: "))
             item = FoodItem(name = item_name, price = price, quantity = quantity)
-            admin.add_item(item)
+            admin.add_item(star,item)
         elif choice == 2:
             item_name = input("Item Name: ").lower()
             admin.remove_item(item_name)
