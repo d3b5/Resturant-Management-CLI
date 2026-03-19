@@ -91,6 +91,7 @@ def admin_menu():
         elif choice == 5:
             admin.view_menu(star)
         elif choice == 6:
+            print(f"Bye, Admin {name}!")
             break
         else:
             print("Invalid Choice!")
@@ -107,6 +108,7 @@ while True:
     elif choice == 2:
         customer_menu()
     elif choice == 3:
+        print("Bye!")
         break
     else:
         print("Invalid Choice!")
