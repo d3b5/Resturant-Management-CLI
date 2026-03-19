@@ -90,12 +90,12 @@ class Employee(User):
     
     def __repr__(self):
         return f"""
-        Name: {self.name}
+        Name: {self.name.title()}
         Phone: {self.phone}
         E-Mail: {self.email}
-        Address: {self.address}
+        Address: {self.address.title()}
         Age: {self.age}
-        Designation: {self.designation}
+        Designation: {self.designation.title()}
         Salary: {self.salary}"""
 
 class Admin(User):
