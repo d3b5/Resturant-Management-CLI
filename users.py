@@ -116,7 +116,12 @@ class Admin(User):
         restaurant.view_employees()
     
     def add_item(self,restaurant,item):
-        restaurant.menu.add_item(item)
+        menu_item = restaurant.menu.find_item(item.name)
+        if menu_item:
+            menu_item.quantity += item.quantity
+            print(f"Added {item.quantity} {item.name.title()}. Quantity Now: {menu_item.quantity}")
+        else:
+            restaurant.menu.add_item(item)
     
     def remove_item(self,restaurant,item_name):
         restaurant.menu.remove_item(item_name)
