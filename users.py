@@ -73,8 +73,6 @@ class Customer(User):
             if cash > self.show_bill:
                 print(f"Change return: {cash - self.show_bill}")
             
-
-
     def show_cart(self):
         if not self.cart:
             print("Cart is empty!")
