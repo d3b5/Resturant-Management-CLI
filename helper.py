@@ -1,3 +1,13 @@
+def name_validator(txt):
+    if txt.strip()=='':
+        return False
+    for char in txt.strip():
+        if '0'<=char<='9':
+            return False
+    return True
+
+
+
 def get_input(prompt, cast_func=str, validator=None, error_message="Invalid Input"):
     while True:
         try:
@@ -5,5 +15,5 @@ def get_input(prompt, cast_func=str, validator=None, error_message="Invalid Inpu
             if validator and not validator(value):
                 raise ValueError
             return val
-        except:
+        except ValueError:
             print(error_message)
