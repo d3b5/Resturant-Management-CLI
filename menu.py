@@ -25,5 +25,8 @@ class Menu:
             print("<-------MENU------->")
             print(f"    {'Name':<18} {'Price':<8} {'Quantity':<10}")
             
-            for i,item in enumerate(self.items.values(),1):            
-                print(f"{i}. {item.name.title():<20} {item.price:<8} {item.quantity:<8}")
+            for i,item in enumerate(self.items.values(),1):    
+                if item.quantity == 0:
+                    print(f"{i}. {item.name.title():<20} {item.price:<8} {'[OUT OF STOCK]':<15}")
+                else:        
+                    print(f"{i}. {item.name.title():<20} {item.price:<8} {item.quantity:<8}")
