@@ -37,7 +37,9 @@ class Customer(User):
                 print(f"{quantity} {item.name} is added to the cart.")
         else:
             print("Item not found!")
-    
+    @property
+    def cart_empty(self):
+        return self.cart.empty
     def remove_from_cart(self, restaurant, item_name, quantity):
         cart_item = self.cart.find_item(item_name)
         inventory_item = restaurant.menu.find_item(item_name)
@@ -74,7 +76,7 @@ class Customer(User):
                 print(f"Change return: {cash - self.show_bill}")
             
     def show_cart(self):
-        if not self.cart:
+        if self.cart_empty:
             print("Cart is empty!")
         else:
             print(f"<-----{self.name}'s Cart----->")
