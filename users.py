@@ -71,7 +71,7 @@ class Customer(User):
         else:
             print(f"{self.show_bill} USD Paid!")
             if cash > self.show_bill:
-                print(f"Change return: {cash - self.show_bill}")
+                print(f"Change return: {cash - self.show_bill} USD")
             self.cart.clear_cart()
             
     def show_cart(self):
