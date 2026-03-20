@@ -42,7 +42,7 @@ def customer_menu():
             cash = int(input("Enter Bill: "))
             customer.pay_bill(cash)
         elif choice == 6:
-            print(f"Thank you for visiting {star.name}")
+            print(f"Thank you for visiting {star.name}\n")
             break
         else:
             print("Invalid Choice!")
@@ -91,7 +91,7 @@ def admin_menu():
         elif choice == 5:
             admin.view_menu(star)
         elif choice == 6:
-            print(f"Bye, Admin {name}!")
+            print(f"Bye, Admin {admin.name}!\n")
             break
         else:
             print("Invalid Choice!")
