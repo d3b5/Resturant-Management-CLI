@@ -2,7 +2,7 @@ from food_item import FoodItem
 class Order:
     def __init__(self):
         self.items={}
-    
+    @property
     def empty(self):
         return not self.items
 
