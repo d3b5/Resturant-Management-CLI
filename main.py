@@ -32,9 +32,12 @@ def customer_menu():
             quantity = int(input("Quantity: "))
             customer.add_to_cart(restaurant = star, item_name = item_name, quantity = quantity)
         elif choice == 3:
-            item_name = input("Item Name: ").lower()
-            quantity = int(input("Quantity: "))
-            customer.remove_from_cart(restaurant = star, item_name = item_name, quantity = quantity)
+            if customer.cart_empty:
+                print("Sorry, your cart is empty!")
+            else:
+                item_name = input("Item Name: ").lower()
+                quantity = int(input("Quantity: "))
+                customer.remove_from_cart(restaurant = star, item_name = item_name, quantity = quantity)
         elif choice == 4:
             customer.show_cart()
         elif choice == 5:
