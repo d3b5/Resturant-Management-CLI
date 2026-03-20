@@ -79,9 +79,10 @@ class Customer(User):
             print("Cart is empty!")
         else:
             print(f"<-----{self.name}'s Cart----->")
-            print(f"Name\tPrice\tQuantity")
-            for item in self.cart.items.values():
-                print(f"{item.name.title()}\t{item.price}\t{item.quantity}")
+            print(f"    {'Name':<18} {'Price':<10} {'Quantity':<10}")
+            
+            for i,item in enumerate(self.items.values(),1):            
+                print(f"{i}. {item.name.title():<20} {item.price:<8} {item.quantity:<8}")
 
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
