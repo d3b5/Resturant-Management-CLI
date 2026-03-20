@@ -12,7 +12,7 @@ def get_input(prompt, cast_func=str, validator=None, error_message="Invalid Inpu
     while True:
         try:
             val = cast_func(input(prompt))
-            if validator and not validator(value):
+            if validator and not validator(val):
                 raise ValueError
             return val
         except ValueError:
