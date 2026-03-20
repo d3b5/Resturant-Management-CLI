@@ -6,6 +6,10 @@ def name_validator(txt):
             return False
     return True
 
+def int_validator(x):
+    return isinstance(x,int) and x>0
+def float_validator(x):
+    return isinstance(x,float) and x>0
 
 
 def get_input(prompt, cast_func=str, validator=None, error_message="Invalid Input"):
