@@ -59,7 +59,7 @@ class Customer(User):
                 self.cart.remove_item(item_name)
                 print(f"All {item_name} has been removed!")
             else:
-                print(f"{quantity} {item_name.title()} has been removed from cart. Remaining {item_name}: {cart_item.quantity}")
+                print(f"Removed {quantity} {item_name.title()}. Quantity Now: {cart_item.quantity}")
     @property
     def show_bill(self):
         return self.cart.total_price
