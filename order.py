@@ -2,6 +2,9 @@ from food_item import FoodItem
 class Order:
     def __init__(self):
         self.items={}
+    
+    def empty(self):
+        return not self.items
 
     def add_item(self,item):
         if item.name in self.items:
