@@ -34,7 +34,7 @@ class Customer(User):
             else:
                 self.cart.add_item(FoodItem(item.name, item.price, quantity))
                 item.quantity -= quantity #updating resturant inventory
-                print(f"{quantity} {item.name} is added to the cart.")
+                print(f"{quantity} {item.name.title()} is added to the cart.")
         else:
             print("Item not found!")
     @property
@@ -59,7 +59,7 @@ class Customer(User):
                 self.cart.remove_item(item_name)
                 print(f"All {item_name} has been removed!")
             else:
-                print(f"{quantity} {item_name} has been removed from cart. Remaining {item_name}: {cart_item.quantity}")
+                print(f"{quantity} {item_name.title()} has been removed from cart. Remaining {item_name}: {cart_item.quantity}")
     @property
     def show_bill(self):
         return self.cart.total_price
