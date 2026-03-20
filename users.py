@@ -76,7 +76,7 @@ class Customer(User):
                 print(f"Change return: {cash - self.show_bill}")
             
     def show_cart(self):
-        if self.cart_empty:
+        if self.cart.empty:
             print("Cart is empty!")
         else:
             print(f"<-----{self.name}'s Cart----->")
