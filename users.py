@@ -81,7 +81,7 @@ class Customer(User):
             print(f"<-----{self.name}'s Cart----->")
             print(f"Name\tPrice\tQuantity")
             for item in self.cart.items.values():
-                print(f"{item.name}\t{item.price}\t{item.quantity}")
+                print(f"{item.name.title()}\t{item.price}\t{item.quantity}")
 
 class Employee(User):
     def __init__(self, name, phone, email, address, age, designation, salary):
