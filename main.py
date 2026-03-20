@@ -21,8 +21,9 @@ def customer_menu():
         2. Add item to cart
         3. Remove item from cart
         4. View cart
-        5. Pay Bill
-        6. Exit
+        5. Show Bill
+        6. Pay Bill
+        7. Exit
         """)
         choice = int(input("Choice: "))
         if choice == 1:
@@ -41,10 +42,16 @@ def customer_menu():
         elif choice == 4:
             customer.show_cart()
         elif choice == 5:
+            print(f"Total Bill: {customer.show_bill} USD")
+            choice = input("Would you like to pay now? (y/n): ").lower()
+            if choice == 'y':
+                cash = int(input("Enter Bill: "))
+                customer.pay_bill(cash)
+        elif choice == 6:
             print(f"Total Bill: {customer.show_bill}")
             cash = int(input("Enter Bill: "))
             customer.pay_bill(cash)
-        elif choice == 6:
+        elif choice == 7:
             print(f"Thank you for visiting {star.name}\n")
             break
         else:
