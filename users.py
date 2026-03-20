@@ -24,17 +24,21 @@ class Customer(User):
         restaurant.menu.show_menu()
     
     def add_to_cart(self, restaurant, item_name,quantity):
-        item = restaurant.menu.find_item(item_name)
-        if item:         
-
+        cart_item = self.cart.find_item(item_name)
+        inventory_item = restaurant.menu.find_item(item_name)
+        if inventory_item:        
             if quantity<0:
                 print("Invalid Quantity!")
-            elif quantity>item.quantity:
-                print(f"Insufficient stock. We have {item.quantity} {item.name}")
+            elif quantity>inventory_item.quantity:
+                print(f"Insufficient stock. We have {inventory_item.quantity} {inventory_item.name}")
             else:
-                self.cart.add_item(FoodItem(item.name, item.price, quantity))
-                item.quantity -= quantity #updating resturant inventory
-                print(f"{quantity} {item.name.title()} is added to the cart.")
+                if cart_item:
+                    cart_item.quantity += quantity
+                    print(f"Added {quantity} {item_name.title()}. Quantity Now: {cart_item.quantity}")
+                else:
+                    self.cart.add_item(FoodItem(inventory_item.name, inventory_item.price, quantity))
+                    inventory_item.quantity -= quantity #updating resturant inventory
+                    print(f"{quantity} {inventory_item.name.title()} is added to the cart.")
         else:
             print("Item not found!")
     @property
