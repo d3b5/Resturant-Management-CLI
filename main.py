@@ -34,7 +34,7 @@ def customer_menu():
         if choice == 1:
             customer.show_menu(restaurant=star)
         elif choice == 2:
-            item_name = input("Item Name: ").lower()
+            item_name = get_input(prompt="Item name: ", validator = name_validator, error_message="Valid Name is required.").lower()
             quantity = get_input(prompt="Quantity: ",cast_func=int, validator=int_validator,error_message="Enter valid quantity.")
             customer.add_to_cart(restaurant = star, item_name = item_name, quantity = quantity)
         elif choice == 3:
@@ -86,7 +86,7 @@ def admin_menu():
         """)
         choice = get_input(prompt="Choice: ",cast_func=int, validator=int_validator,error_message="Invalid Choice!")
         if choice == 1:
-            item_name = input("Item Name: ").lower()
+            item_name = get_input(prompt="Item name: ", validator = name_validator, error_message="Valid Name is required.").lower()
             quantity = get_input(prompt="Quantity: ",cast_func=int, validator=int_validator,error_message="Enter valid quantity.")
             price = get_input(prompt="Price: ",cast_func=float, validator=float_validator,error_message="Enter valid price.")
             item = FoodItem(name = item_name, price = price, quantity = quantity)
